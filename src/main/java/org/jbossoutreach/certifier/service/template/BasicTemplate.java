@@ -10,7 +10,7 @@ public class BasicTemplate implements Template {
 
     @Override
     public InputStream buildTemplate(Certificate certificate)  {
-        final File html = TemplateGenerator.generate(certificate, "templates/basic.ftl");
+        final File html = TemplateGenerator.generate(certificate, "basic.ftl");
         try {
             return new FileInputStream(html);
         } catch (FileNotFoundException e) {

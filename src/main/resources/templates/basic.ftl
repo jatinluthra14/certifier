@@ -1,6 +1,9 @@
 <html>
     <body>
         <table width='100%' style='border-collapse: collapse; color:rgb(51,153,255); background:rgb(230,230,230);'>
+
+             <#include "partials/icons.ftl">
+
             <tr>
                 <td style='height:800px; padding:20px; text-align:center; border: 10px solid #787878'>
                     <span style='font-size:60px; font-weight:bol'>${certificate.org}</span>
@@ -15,6 +18,11 @@
                     <span style='font-size:20px'>with score of <b>  ${certificate.student.score}  </b></span>
                 </td>
             </tr>
+
+
+            <#include "partials/signs.ftl">
+
+
         </table>
     </body>
-</html>;
+</html>

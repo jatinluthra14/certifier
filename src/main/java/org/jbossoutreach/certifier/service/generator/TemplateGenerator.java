@@ -19,7 +19,7 @@ public class TemplateGenerator {
 
         //Freemarker configuration object
         Configuration configuration = new Configuration();
-        configuration.setClassForTemplateLoading(TemplateGenerator.class, "/");
+        configuration.setClassForTemplateLoading(TemplateGenerator.class, "/templates");
         try {
             //Load template from source folder
             Template template = configuration.getTemplate(templatePath);
