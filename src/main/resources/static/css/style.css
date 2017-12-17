@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 div.heading p {
   font-size: 30px;
 }
@@ -8,6 +11,9 @@ form.detail-form {
   border: 3px solid #e4e0e0;
   padding: 70px;
 }
+.upload_form {
+	display: none;
+}
 
 .mt20 {
   margin-top: 20px;
@@ -15,4 +21,20 @@ form.detail-form {
 
 .center {
   text-align: center;
+}
+#displayResults {
+    word-wrap: break-word;
+}
+.modal-body {
+	overflow-x: auto;
+	margin-right: 15px;
+}
+.nameform {
+	margin-top: 15px
+}
+.firstHeading {
+	font-weight: bold;
+}
+.uploadLabel {
+	margin-top: 15px
 }
