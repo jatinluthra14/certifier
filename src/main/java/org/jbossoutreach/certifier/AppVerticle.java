@@ -5,8 +5,6 @@ import io.vertx.ext.web.Router;
 import org.jbossoutreach.certifier.route.Route;
 
 import java.awt.*;
-import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
