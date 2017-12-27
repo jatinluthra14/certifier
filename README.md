@@ -48,10 +48,17 @@ If you are stuck anywhere or need any help, you can refer the following:
 
 ## Contributing to the project
 
-1. Make your intended changes on your locally cloned repository
-2. *Commit* the changes and *push* the commit to your forked repository on GitHub
-3. Ensure the changes on the commit pushed to your GitHub fork are right
-4. Create a *pull request* requesting to merge the commits on your fork to this repository.
-5. Write a concise and convincing pull request message explaining the purpose of your commits.
+```Step 1: Fork this project.```: 
+Go to the top right of the project page and click on "Fork". A clone of this repo will be created on your GitHub account.
+
+```Step 2: Code your changes```: 
+Create a new branch, and create/edit files as per your coding requirements. Ensure that your code is clean and efficient, and avoid redundancies. It is also advised to follow naming conventions as and where specified. Also make sure that your code is your own, and is not closed-source or stolen.
+
+```Step 3: Commit and send a Pull Request (PR)```: 
+Once you are done coding the changes, commit the files and create a PR. Click on "Compare across forks" when creating the PR, and select the master branch of this repo as the base. Set the head to your branch on your fork. Click on the button "Create Pull Request". Give your PR a meaningful title and a brief message explaining the purpose of your commits.
+
+```Step 4: Ensuring code quality```: 
+Once a PR has been created, check if it can be merged without any issues. If there are any issues, repeat from ```Step 2```. Wait for a reviewer to cross check your changes, and then merge your changes.
 
 You can have a look this [**web page**](https://egghead.io/lessons/javascript-how-to-fork-and-clone-a-github-repository) to know how to Clone, Fork and edit the project on a local respository. 
+Keep contributing!
