@@ -7,6 +7,10 @@ This project generates a certificate. It runs on Vert.x, and is built on the Gra
 * Students can generate certificates of completion for a variety of courses.
 * Mentors can generate certificates for students from data in CSV files.
 
+## Dependencies
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 8 (Dont use Java 9) 
+* [Gradle 4.0.0](https://gradle.org/releases/) or higher
+
 
 ## Setting up the project
 
@@ -23,6 +27,19 @@ This project generates a certificate. It runs on Vert.x, and is built on the Gra
 5. Right click the **App** class
 6. Right click on the vertx at the top of the code and use the suggested help from intellij to link it to the project
 7. Click **Run App.main()**
+
+
+###### If using an IDE like Eclipse
+1. [Download JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+2. [Download this Repository](https://codeload.github.com/jboss-outreach/certifier/zip/master)
+3. Unzip the Downloaded Repository
+4. In Eclipse in File Tab select Import then select Gradle
+5. Select Root of the Project
+6. Click **Run Button** 
+
+
+
+
 
 ### If using on terminal in Linux/Unix,
 ```sh
@@ -48,6 +65,14 @@ If you are stuck anywhere or need any help, you can refer the following:
 
 ## Contributing to the project
 
+
+1. Make your intended changes on your locally cloned repository.
+2. *Commit* the changes and *push* the commit to your forked repository on GitHub.
+3. Ensure the changes on the commit pushed to your GitHub fork are right.
+4. Create a *pull request* requesting to merge the commits on your fork to this repository.
+5. Write a concise and convincing pull request message explaining the purpose of your commits.
+6. Try including any other Relevant Details as may be necessary. 
+
 ```Step 1: Fork this project.```: 
 Go to the top right of the project page and click on "Fork". A clone of this repo will be created on your GitHub account.
 
@@ -62,3 +87,4 @@ Once a PR has been created, check if it can be merged without any issues. If the
 
 You can have a look this [**web page**](https://egghead.io/lessons/javascript-how-to-fork-and-clone-a-github-repository) to know how to Clone, Fork and edit the project on a local respository. 
 Keep contributing!
+
