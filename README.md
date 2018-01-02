@@ -1,47 +1,51 @@
-# Certifier Project [![Gitter chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/jboss-outreach)
+# Certifier Project
 
-
-This project generates a certificate. It runs on Vert.x, and is built on the Gradle build system.
+[![Gitter chat](https://badges.gitter.im/gitterHQ/services.svg)](https://gitter.im/jboss-outreach)
 
 ## Contents
-* [Features](#features)
-* [Setting up the project](#setup)
+* [What is Certifier?](#desc)
+* [Setting up](#setup)
 * [Running the App](#run)
-* [Contributing](#contributing)
-* [Help/Reference](#help)
+* [Contributing](#contribute)
+* [Additional Learning](#learning)
 
-## <a id = "features"> </a>Features
+## <a id="desc"></a> What is Certifier?
+This project generates a certificate. It runs on Vert.x, and is built on the Gradle build system.
 
+#### Features
 * Students can generate certificates of completion for a variety of courses.
 * Mentors can generate bulk certificates for students from data in CSV files.
 
+## <a id="setup"></a> Setting Up the Project
 
-## <a id = "setup"> </a> Setting up the Project
+**If you want to just download the app**
 
-## Dependencies
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 8 (Dont use Java 9) 
+- Just download [zip](https://github.com/jboss-outreach/certifier/archive/master.zip) file.
+
+**If you want to contribute to the project**
+
+1. **Fork** the repository by clicking on the Fork icon at the top right corner of this page.
+2. **Clone** the repository on to your local machine by running the following commands on git:
+```
+$ git clone https://github.com/[YOUR-USERNAME]/certifier.git
+```
+
+3. If you need help, refer [Forking and Cloning in git](https://help.github.com/articles/fork-a-repo/). You can also ask for help on the [chat](https://gitter.im/jboss-outreach/gci).
+
+#### Setup Dependencies
+* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (Don't use Java 9 as it won't work)
 * [Gradle 4.0.0](https://gradle.org/releases/) or higher
 
-### Initial Setup
-
-* **Fork** ![forkImage](https://camo.githubusercontent.com/ba881041f4d7c96895e8466eece0c43317919f56/68747470733a2f2f696d6167652e6962622e636f2f667953745a6d2f666f726b2e706e67) this git repository to your github account.
-* **Clone** the fork to your local directory by running the following command in git bash:
-						
-		$ git clone https://github.com/[YOUR-USERNAME]/certifier.git
-           
-
-###### Alternatively
-
-* You can also download the [.zip](https://github.com/jboss-outreach/certifier/archive/master.zip) file.
+## <a id="run"></a> Running the app
 
 ### Set up in your local machine
 
 1. Download [Download JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 8, as 9 won't work). Make sure it is for your specific operating system!
-2. Make sure you have declared the `JAVA_HOME` environment variable to the directory where JDK was installed. 
+2. Make sure you have declared the `JAVA_HOME` environment variable to the directory where JDK was installed.
 3. The project can be run by two methods:
 	* [Using An IDE like Intellij IDea or Eclipse that supports Java Development](#ide)
 	* [Via Command User Interface](#cui)
-	
+
 #### <a id = "ide"> </a> Using an IDE
 
 ##### Using IntelliJ Idea
@@ -51,7 +55,7 @@ This project generates a certificate. It runs on Vert.x, and is built on the Gra
     ```
     configure --> Project Defaults --> Project Structure --> Select JDK 1.8 location
     ```
-    
+
 	* [Refer this for further help](https://www.jetbrains.com/help/idea/defining-a-jdk-and-a-mobile-sdk-in-intellij-idea.html)
 3. Import the cloned repository into your IDE
 4. After importing there should be a notification in the bottom right, asking you to link the project to gradle. Click on it and it will occur automatically.
@@ -59,7 +63,7 @@ This project generates a certificate. It runs on Vert.x, and is built on the Gra
 6. Right click on the vertx at the top of the code and use the suggested help from intelliJ to link it to the project
 7. Click **Run App.main()**
 
-##### Using Eclipse IDE 
+##### Using Eclipse IDE
 1. Download and install [Eclipse IDE](https://eclipse.org/)
 2. Get gradle plugin for Eclipse from [here](https://steffenschaefer.github.io/gwt-gradle-plugin/doc/latest/eclipse)
 3. Configure Eclipse project defaults, project structure, to set the project SDK to java version 1.8:
@@ -72,64 +76,65 @@ This project generates a certificate. It runs on Vert.x, and is built on the Gra
 5. Click **Run App.main()**
 
 #### <a id = "cui"> </a> Running via the Command User Interface
-	
-### If using on terminal in Linux/Unix,
+
+##### If using on terminal in Linux/Unix,
 ```sh
-./gradlew run         # pwd should be project home dir
+$ ./gradlew run # pwd should be project home dir
 ```
-* If permission is denied then use ```chmod +x ./gradlew```
+* If permission is denied then use `chmod +x ./gradlew`
 
-###### If using on Command Prompt in Windows
-* Run the following command: 
+##### If using on Command Prompt in Windows
+```sh
+$ gradlew run   # pwd should be project home dir & open cmd as admin
+```
 
-	```sh
-	gradlew run      # pwd should be project home dir & open cmd as admin
-	```
-## <a id = "run"> </a> Running the app
+### Viewing the App
 * Open http://localhost:4000 in your browser
 
-## <a id = "contributing"> </a>Contributing to the project
+## <a id="contribute"></a> Contributing to the project
 
-**Step 1: Fork this project**: 
+**Step 1: Fork this project:**
 
-Go to the top right of the project page and click on "Fork". A clone of this repo will be created on your GitHub account.
+Go to the top right of the project page and click on "Fork". A fork of this repo will be created on your GitHub account.
 
-**Step 2: Code your changes**: 
+<a id="step2"></a> **Step 2: Code your changes**:
 
-Create a new branch, and create/edit files as per your coding requirements. Ensure that your code is clean and efficient, and avoid redundancies. It is also advised to follow naming conventions as and where specified. Also make sure that your code is your own, and is not closed-source or stolen.
+Create a new branch by:
+```
+$ git checkout -b YOUR_NEW_BRANCH_NAME
+```
+Then create/edit files as per your coding requirements. Ensure that your code is clean and efficient, and avoid redundancies. It is also advised to follow naming conventions as and where specified. Also make sure that your code is your own, and is not closed-source or stolen.
 
-**Step 3: Commiting and pushing the changes:** 
+**Step 3: Commiting and pushing the changes:**
 
-*Commit* the changes and *push* the commit to your forked repository on GitHub by running the following commands:
- 
-			$ git add filename.extension 		# for including inidividual files OR
-			$ git add . 				# for including all files at once
-			$ git commit -m"Your commit message here"	
-			$ git push origin 
-
+*Commit* the changes and *push* the commit to your forked repository on GitHub by:
+```sh
+$ git add FILENAME.EXTENSION    # for including inidividual files
+$ git add .     # for including all files at once
+```
+```sh
+$ git commit -m "Your commit message here"
+$ git push origin
+```
 If stuck at this point, refer [here](https://readwrite.com/2013/10/02/github-for-beginners-part-2/)
 
-**Step 4: Sending a Pull Request (PR):** 
+**Step 4: Sending a Pull Request (PR):**
 
-Once you are done coding the changes, commit the files and create a [*PR*](https://help.github.com/articles/about-pull-requests/). Click on "Compare across forks" when creating the PR, and select the master branch of this repo as the base. Set the head to your branch on your fork. Click on the button "Create Pull Request". Give your PR a meaningful title and a brief message explaining the purpose of your commits.
+Once you are done coding the changes, commit the files and create a [*PR*](https://help.github.com/articles/about-pull-requests/). Click on "Compare across forks" when creating the PR, and select the master branch of this repo as the base. Set the head to your branch that your committed onto. Click on the button "Create Pull Request". Give your PR a meaningful title and a brief message explaining the purpose of your commits.
 
-**Step 5: Ensuring code quality** 
+**Step 5: Ensuring code quality**
 
-Once a PR has been created, check if it can be merged without any issues or conflicts. If there are any issues, repeat from **Step 2** and try to resolve them. Wait for a reviewer to cross check your changes, and then merge your changes.
+Once a PR has been created, check if it can be merged without any issues or conflicts. If there are any issues, repeat from [***Step 2***](#step2) and try to resolve them. Wait for a reviewer to cross check your changes, and let them merge your changes.
 
 * Additional Reference regarding clone, fork and editing a repository [**here**](https://egghead.io/lessons/javascript-how-to-fork-and-clone-a-github-repository).
 
-## <a id = "help"> </a>Help/Reference
 
-If you are stuck anywhere or need any help, you can refer the following:
-1. [Understanding the Github Flow](https://guides.github.com/introduction/flow)
-2. [Getting started with Git](https://git-scm.com/book/en/v1/Getting-Started)
-3. [Git Handbook](https://guides.github.com/introduction/git-handbook)
-4. [Practice git and have fun!](https://try.github.io)
-5. [Read the vert.x documentation](http://vertx.io/docs/)
-6. [Terminal Handbook](http://linuxcommand.org/)
-7. [Command Prompt Handbook](http://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/)
-8. [Need further help? Chat with us!](https://gitter.im/jboss-outreach/gci)
+`Keep Contributing to open source!` :smile:
 
-You can have a look this [**web page**](https://egghead.io/lessons/javascript-how-to-fork-and-clone-a-github-repository) to know how to Clone, Fork and edit the project on a local respository. 
-Keep contributing!
+
+## <a id = "learning"> </a> Additional Learning
+
+- [Git Handbook](https://guides.github.com/introduction/git-handbook)
+- [Git Introduction](https://guides.github.com/introduction/flow)
+- [Terminal Handbook](http://linuxcommand.org/)
+- [Command Prompt Handbook](http://www.makeuseof.com/tag/a-beginners-guide-to-the-windows-command-line/)
