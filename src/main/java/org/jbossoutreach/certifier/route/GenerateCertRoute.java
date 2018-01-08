@@ -7,10 +7,6 @@ import org.jbossoutreach.certifier.model.Certificate;
 import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.CertManager;
 
-import java.util.Arrays;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 public class GenerateCertRoute implements Route {
     private final CertManager certManager;
 
@@ -22,12 +18,10 @@ public class GenerateCertRoute implements Route {
     public void setup(Router router) {
 
         router.route().handler(BodyHandler.create());
-        router.route("/generateCert*").handler(BodyHandler.create());
         router.post("/generateCert").handler(this::generateCert);
     }
 
     private void generateCert(RoutingContext routingContext) {
-
         final Student student = new Student(
                 routingContext.request().getFormAttribute("name"),
                 routingContext.request().getFormAttribute("email"),
@@ -42,7 +36,15 @@ public class GenerateCertRoute implements Route {
         );
 
         final String outPath = certManager.generateCert(certificate);
-        routingContext.response().sendFile(outPath);
+        if (outPath == null) {
+            routingContext.response()
+                    .setStatusCode(500)
+                    .end("Failed to generate the certificate.");
+        } else {
+            routingContext.response()
+                    .setStatusCode(201)
+                    .sendFile(outPath);
+        }
     }
 
 }

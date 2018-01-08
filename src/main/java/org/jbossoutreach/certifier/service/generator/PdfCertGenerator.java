@@ -1,13 +1,14 @@
 package org.jbossoutreach.certifier.service.generator;
 
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.jbossoutreach.certifier.model.Certificate;
-import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.template.Template;
 
+import java.io.File;
 import java.io.FileOutputStream;
 
 /**
@@ -25,10 +26,13 @@ public class PdfCertGenerator implements CertGenerator {
     @Override
     public String generateCert(Certificate certificate) throws Exception {
         final Document document = new Document(PageSize.A4.rotate());
-        final PdfWriter writer;
-        writer = PdfWriter.getInstance(document, new FileOutputStream(outPath));
+        final File outFile = new File(outPath);
+        outFile.getParentFile().mkdirs();
+        outFile.createNewFile();
+        final PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(outFile));
 
         document.open();
+        document.add(new Chunk(""));
         try {
             XMLWorkerHelper.getInstance().parseXHtml(writer, document,
                     template.buildTemplate(certificate));

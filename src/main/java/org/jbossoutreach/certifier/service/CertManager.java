@@ -1,7 +1,6 @@
 package org.jbossoutreach.certifier.service;
 
 import org.jbossoutreach.certifier.model.Certificate;
-import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.generator.CertGenerator;
 
 public class CertManager {
@@ -22,6 +21,7 @@ public class CertManager {
         try {
             outPath = certGenerator.generateCert(certificate);
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
         return outPath;
