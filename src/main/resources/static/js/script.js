@@ -60,7 +60,51 @@ function handleFiles(files){
       }
     }
 
+angular.module('patternfly.navigation').controller('vertNavController', ['$scope',
+  function ($scope) {
+    $scope.navigations = [
+            {
+              title: "View Certificates",
+              iconClass: "fa fa-certificate",
+              uiSref: "ViewNotes",
+              uiSrefOptions: { someKey: 'SomeValue' }              
+            },
+            {
+              title: "Your Certificates",
+              iconClass : "fa fa-trophy",
+              uiSref: "ipsum",
+              children: [
+              {
+                title: "Google Code-In "
 
+              },
+              {
+                title: "Google Summer Of Code"
+              }
+              ]
+            },
+            {
+              title: "Share Certificates",
+              iconClass : "fa fa-share-alt  ",
+              uiSref: "dolor",
+              children: [
+              {
+                title: "Facebook"
+
+              },
+              {
+                title: "Twitter"
+              }
+              ]
+            },
+            {
+              title: "Contact Us",
+              iconClass : "fa fa-phone"
+            }
+          ];
+
+  }
+]);
 
 
 
