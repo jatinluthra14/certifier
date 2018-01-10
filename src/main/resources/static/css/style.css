@@ -23,37 +23,58 @@ form.detail-form {
 .center {
   text-align: center;
 }
+
 #displayResults {
     word-wrap: break-word;
 }
+
 .modal-body {
 	overflow-x: auto;
 	margin-right: 15px;
 }
+
 .nameform {
 	margin-top: 15px
 }
+
 .firstHeading {
 	font-weight: bold;
 }
+
 .uploadLabel {
 	margin-top: 15px
 }
+
 #contentContainer {
-  margin-top: -10px;
+  margin-top: 10px;
+  margin-left: 75px;
 }
+
 .navbar-pf-vertical {
   font-family: 'Raleway', sans-serif;
+  margin-left: -10px;
+  margin-right: -10px;
 }
+
 .navbar-pf-vertical .navbar-brand {
   font-family: 'Raleway' , sans-serif;
   font-weight: 600;
   font-size: 20px;  
   margin-top: 8px;
 }
+
 .detail-form {
   height: 480px;
 }
+
 .contents{
   margin-top: -10px;
+}
+
+#label-upload {
+  margin-top: 50px;
+}
+
+#download {
+  margin-left: 40px;
 }
