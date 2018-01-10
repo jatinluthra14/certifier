@@ -17,13 +17,13 @@ public class CertManager {
      */
 
     public String generateCert(Certificate certificate) {
-        final String outPath;
+        final String certId;
         try {
-            outPath = certGenerator.generateCert(certificate);
+            certId = certGenerator.generateCert(certificate);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        return outPath;
+        return certId;
     }
 }

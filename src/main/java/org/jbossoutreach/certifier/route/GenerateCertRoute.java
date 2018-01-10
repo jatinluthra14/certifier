@@ -3,11 +3,14 @@ package org.jbossoutreach.certifier.route;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
+import org.jbossoutreach.certifier.CertCache;
 import org.jbossoutreach.certifier.model.Certificate;
 import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.CertManager;
 
 public class GenerateCertRoute implements Route {
+    private static final String ROUTE_PATH = "/certificates";
+
     private final CertManager certManager;
 
     public GenerateCertRoute(CertManager certManager) {
@@ -18,14 +21,29 @@ public class GenerateCertRoute implements Route {
     public void setup(Router router) {
 
         router.route().handler(BodyHandler.create());
-        router.post("/generateCert").handler(this::generateCert);
+        router.post(ROUTE_PATH).handler(this::post);
+        router.get(ROUTE_PATH + "/:id").handler(this::get);
     }
 
-    private void generateCert(RoutingContext routingContext) {
+    private void get(RoutingContext ctx) {
+        final CertCache certCache = CertCache.getInstance();
+        final String certPath = certCache.get(ctx.request().getParam("id"));
+
+        if (certPath == null) {
+            ctx.response()
+                    .setStatusCode(404)
+                    .end("Certificate not found. Please ensure the ID is correct.");
+        } else {
+            ctx.response()
+                    .sendFile(certPath);
+        }
+    }
+
+    private void post(RoutingContext ctx) {
         final Student student = new Student(
-                routingContext.request().getFormAttribute("name"),
-                routingContext.request().getFormAttribute("email"),
-                routingContext.request().getFormAttribute("score")
+                ctx.request().getFormAttribute("name"),
+                ctx.request().getFormAttribute("email"),
+                ctx.request().getFormAttribute("score")
         );
 
         final Certificate certificate = new Certificate(
@@ -35,15 +53,15 @@ public class GenerateCertRoute implements Route {
                 student
         );
 
-        final String outPath = certManager.generateCert(certificate);
-        if (outPath == null) {
-            routingContext.response()
+        final String certId = certManager.generateCert(certificate);
+        if (certId == null) {
+            ctx.response()
                     .setStatusCode(500)
                     .end("Failed to generate the certificate.");
         } else {
-            routingContext.response()
+            ctx.response()
                     .setStatusCode(201)
-                    .sendFile(outPath);
+                    .end(certId);
         }
     }
 

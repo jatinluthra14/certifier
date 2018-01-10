@@ -14,9 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
-    private static final String OUTPUT_PATH = "./output/certificate.pdf";
+
+    private static final String OUT_PATH = "./output";
 
     public static void main(String[] args) {
+        // Initialize the cache before initializing the server to avoid delays
+        CertCache.getInstance();
         final AppVerticle verticle = new AppVerticle(provideRoutes());
         final Vertx vertx = Vertx.vertx();
         vertx.deployVerticle(verticle);
@@ -31,7 +34,7 @@ public class App {
 
     private static Route provideGenerateCertRoute() {
         final Template template = new BasicTemplate();
-        final CertGenerator certGenerator = new PdfCertGenerator(OUTPUT_PATH, template);
+        final CertGenerator certGenerator = new PdfCertGenerator(template, OUT_PATH);
         final CertManager certManager = new CertManager(certGenerator);
         return new GenerateCertRoute(certManager);
     }
