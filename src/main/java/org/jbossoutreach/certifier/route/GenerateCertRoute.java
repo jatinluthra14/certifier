@@ -29,8 +29,8 @@ public class GenerateCertRoute implements Route {
         );
 
         final Certificate certificate = new Certificate(
-                "Some Random Organisation",
-                "Certificate of Participation",
+                "JBoss Community",
+                "Certificate of Achievement",
                 "Basic Git Bootcamp",
                 student
         );
