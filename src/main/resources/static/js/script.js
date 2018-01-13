@@ -60,8 +60,8 @@ function handleFiles(files){
       }
     }
 
-angular.module('patternfly.navigation').controller('vertNavController', ['$scope',
-  function ($scope) {
+angular.module('patternfly.navigation').controller('vertNavController', ['$scope', '$http',
+  function ($scope, $http) {
     $scope.navigations = [
             {
               title: "View Certificates",
@@ -103,9 +103,18 @@ angular.module('patternfly.navigation').controller('vertNavController', ['$scope
             }
           ];
 
-  }
+      $scope.user = {};                         //Initialize an object
+      $scope.submitForm = function() {
+          $http({
+                    method: 'post',
+                    url: '/certificates',
+                    data    : $scope.user,      // Pass the field data through this object
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+                  }).then(function(data) {
+                    window.open('/certificates/' + data.data);      // return with data property of object which is returned by server.
+                  }).catch(function(err) {
+                    alert(err.data);
+                  });
+            };
+    }
 ]);
-
-
-
-

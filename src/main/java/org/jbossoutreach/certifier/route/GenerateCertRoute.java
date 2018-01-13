@@ -1,5 +1,6 @@
 package org.jbossoutreach.certifier.route;
 
+import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
@@ -40,11 +41,7 @@ public class GenerateCertRoute implements Route {
     }
 
     private void post(RoutingContext ctx) {
-        final Student student = new Student(
-                ctx.request().getFormAttribute("name"),
-                ctx.request().getFormAttribute("email"),
-                ctx.request().getFormAttribute("score")
-        );
+        Student student = Json.decodeValue(ctx.getBodyAsString(), Student.class);     // Decode the JSON object passed through AJAX
 
         final Certificate certificate = new Certificate(
                 "JBoss Community",
